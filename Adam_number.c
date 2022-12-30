@@ -1,45 +1,20 @@
-#include <stdio.h>
-#include <math.h>
-int rev(int);
-int power(int);
-int sqroot(int);
-main()
+#include<stdio.h>
+int main()
 {
-int n,r1=0,r2=0,sq=0,p=0;
-scanf("%d",&n);
-p=power(n);
-r1=rev(p);
-sq=(int)sqroot(r1);
-r2=rev(sq);
-if(n==r2)
-{
-printf("True");
-}
-else
-{
-printf("False");
-}
-}
-int power(int n)
-{
-int p;
-p=n*n;
-}
-int sqroot(int n)
-{
-int sq=0;
-sq=(int)sqrt(n);
-return sq;
-}
-int rev(int n)
-{
-int temp=0,r=0,t=0;
-temp=n;
-while(temp>0)
-{
-r=temp%10;
-t=t*10+r;
-temp=temp/10;
-}
-return t;
+    int i,a,sq1,sq2,ans1=0,ans2=0,r1,r2;
+    scanf("%d",&a);
+    sq1=a*a;
+    for(i=a;a!=0;a=a/10)
+    {
+        r1=a%10;
+        ans1=ans1*10 + r1;
+    }
+    sq2=ans1*ans1;
+    for(i=sq2;sq2!=0;sq2=sq2/10)
+    {
+        r2=sq2%10;
+        ans2=ans2*10 + r2;
+    }
+    if(sq1==ans2) printf("True");
+    else printf("False");
 }
